@@ -17,7 +17,6 @@
 			$("#tClient tbody tr.selected").remove();
 		});
 	});
-	//$("#description").cleditor();
 	$("#tClient").on("click","tr .btn_remove",function(){
 		thistr = $(this).stairUp({level:4});
 		thisid = thistr.attr("trid");
