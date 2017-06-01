@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<%include head.html%>
+<body>
+	<%include modals.html%>
+	<div class="header">
+		<a class="logo" href="index.html"><img src="img/logo.png" alt="Web Clients" title="Web Clients"/></a>
+		<ul class="header_menu">
+			<li class="list_icon"><a href="#">&nbsp;</a></li>
+		</ul>
+	</div>
+	<div class="menu">
+		<div class="breadLine">
+			<div class="arrow"></div>
+			<div class="adminControl active">
+				Hi, <%= username%>
+			</div>
+		</div>
+		<div class="admin">
+			<div class="image">
+				<img src="img/users/padi32x32.png" class="img-polaroid"/>
+			</div>
+			<ul class="control">
+				<li><span class="icon-comment"></span> <a href="messages.html">Messages</a> <a href="messages.html" class="caption red">12</a></li>
+				<li><span class="icon-cog"></span> <a href="forms.html">Settings</a></li>
+				<li><span class="icon-share-alt"></span> <a href="login.html">Logout</a></li>
+			</ul>
+			<div class="info">
+				<span>Programmer at  PT PadiNET Surabaya</span>
+			</div>
+		</div>
+	<%include menu.html%>
+	</div>
+	<div class="content">
+		<div class="breadLine">
+			<ul class="breadcrumb">
+				<li><a href="#">Webdev</a> <span class="divider">></span></li>
+				<li class="active">Daftar Pelanggan</li>
+			</ul>
+			<ul class="buttons">
+			</ul>
+		</div>
+		<div class="workplace">
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="head clearfix">
+						<div class="isw-grid"></div>
+						<h1>Daftar Pelanggan Web</h1>
+						<ul class="buttons">
+							<li><a  id="addClient" class="isw-plus"></a></li>
+						</ul>
+					</div>
+					<div class="block-fluid table-sorting clearfix">
+						<table cellpadding="0" cellspacing="0" width="100%" class="table" id="tClient">
+							<thead>
+								<tr>
+									<th width="20%">URL</th>
+									<th width="10%">PIC</th>
+									<th width="10%">Packagetype</th>
+									<th width="35%">Keterangan</th>
+									<th width="20%">Exp Date</th>
+									<th width="5%">Aksi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<% jaminan1bpkb.forEach(function(el, index){%>
+									<tr trid='<%= el.id%>'>
+										<td class="url"><%= el.url %></td>
+										<td><%= el.pic %></td>
+										<td><%= el.packagetype %></td>
+										<td><%= el.description%></td>
+										<td><%= moment(el.expdate).format("DD/MM/YYYY")%></td>
+										<td>
+											<div class="btn-group">
+											<button data-toggle="dropdown" class="btn dropdown-toggle" >Action <span class="caret"></span></button>
+												<ul class="dropdown-menu pull-right">
+													<li class='btn_edit pointer' ><a>Edit</a></li>
+													<li class="divider"></li>
+													<li class='btn_remove pointer'><a>Hapus</a></li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+								<%})%>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="dr"><span></span></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/js/links.js"></script>
+	<script type="text/javascript" src="/js/home.js"></script>
+</body>
+</html>
